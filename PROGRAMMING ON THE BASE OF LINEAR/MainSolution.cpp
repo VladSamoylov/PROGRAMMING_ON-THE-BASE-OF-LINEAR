@@ -4,6 +4,7 @@
 using namespace std;
 
 void NaturalNumberIsMultipleOfThreeOrFour(int n) {
+
 	if (n % 3 == 0 && n % 9 != 0) {
 		cout << "Natural Number - " << n << " Is TRUE! It Is Multiple Of 3 And NOT Multiple Of 9." << endl;
 	}
@@ -24,6 +25,7 @@ void NaturalNumberIsMultipleOfThreeOrFour(int n) {
 }
 
 pair<float, float> CalculateTheExpressionsOfM_And_P(float x,float y,float z) {
+
 	float m, p;
 	float pi = 3.14159265;
 
@@ -34,31 +36,43 @@ pair<float, float> CalculateTheExpressionsOfM_And_P(float x,float y,float z) {
 }
 
 void CalculateFuncForRealNumber(float a) {
+	
 	if (a < 2 && a >= -2) {
 		a = pow(a, 2);
 	}
 	else {
 		a = 4;
 	}
-	cout << "Function of real number a is: " << a << endl;
+	cout << "Function of real number A is: " << a << endl;
 }
 
-void MenuOfSolution() {
-	int q = 3;
-	pair<float, float> ret;
+void CalculateAngleOfMinutesAndTime(float f) {
 	
+	float h, m;
+	int hour, minute, angle;
+
+	h = f / 30;
+	hour = h;
+	minute = (h - hour) * 60;
+	m = minute;
+	angle = (m / 60) * 360;
+
+	cout << "Amount of full hours: " << hour << endl;
+	cout << "Amount of full minutes: " << minute << endl;
+	cout << "Angle of a minute hand with a given ray: " << angle << endl;
+}
+
+void MenuOfSolution(int q) {
+
+	pair<float, float> ret;
+
 	switch (q) {
 	case 1:
-		int n;
-
-		cout << "Enter Natural Number: ";
-		cin >> n;
-		NaturalNumberIsMultipleOfThreeOrFour(n);
-		break;
-	case 2:
 		float x, y, z;
 		float m, p;
 
+		cout << "You choose Task A)\n";
+		cout << "calculate according to the values x, y, z specified from the keyboard the meaning of the expressions\n"<<endl;
 		cout << "Enter x: ";
 		cin >> x;
 		cout << "Enter y: ";
@@ -68,24 +82,54 @@ void MenuOfSolution() {
 		ret = CalculateTheExpressionsOfM_And_P(x, y, z);
 		m = ret.first;
 		p = ret.second;
-		cout <<"Expression value of M: " << m << endl;
+		cout << "Expression value of M: " << m << endl;
 		cout << "Expression value of P: " << p << endl;
 		break;
-	case 3:
+	case 2:		
 		float a;
 
+		cout << "You choose Task B)\n";
+		cout << "calculate f (a) for a given real number a from the keyboard\n" << endl;
 		cout << "Enter real number: ";
 		cin >> a;
 		CalculateFuncForRealNumber(a);
 		break;
+	case 3:
+		float f;
+
+		cout << "You choose Task C)\n";
+		cout << "determine the angle of minute and full hours and minutes displayed on the clock\n" << endl;
+		cout << "Enter the value of the angle f: ";
+		cin >> f;
+		CalculateAngleOfMinutesAndTime(f);
+		break;
+	case 4:
+		int n;
+
+		cout << "You choose Task G)\n";
+		cout << "check if true natural number\n" << endl;
+		cout << "Enter Natural Number: ";
+		cin >> n;
+		NaturalNumberIsMultipleOfThreeOrFour(n);
+		break;	
+	default:
+		cout << "You don't enter any task for execution/n";
 	}
 }
 
 
 int main() {
+	int q;
+	cout << "Created by Vladislav Samoilov / KNT - 223\n";
 
-	MenuOfSolution();
-	
-	
+	cout << "--------Select task:--------\n";
+	cout << "Task A) Calculate The Expressions Of M And P - Enter 1\n";
+	cout << "Task B) Calculate Func For Real Number - Enter 2\n";
+	cout << "Task C) Calculate Angle Of Minutes And Time - Enter 3\n";
+	cout << "Task G) Natural Number Is Multiple Of Three Or Four - Enter 4\n";
+	cout << "------------------------------------------------------------\n";
+	cin >> q;
+	MenuOfSolution(q);
+
 	return main();
 }
