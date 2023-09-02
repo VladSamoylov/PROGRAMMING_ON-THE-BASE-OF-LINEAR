@@ -33,8 +33,19 @@ pair<float, float> CalculateTheExpressionsOfM_And_P(float x,float y,float z) {
 	return make_pair (m, p);
 }
 
+void CalculateFuncForRealNumber(float a) {
+	if (a < 2 && a >= -2) {
+		a = pow(a, 2);
+	}
+	else {
+		a = 4;
+	}
+	cout << "Function of real number a is: " << a << endl;
+}
+
 void MenuOfSolution() {
-	int q = 2;
+	int q = 3;
+	pair<float, float> ret;
 	
 	switch (q) {
 	case 1:
@@ -54,14 +65,18 @@ void MenuOfSolution() {
 		cin >> y;
 		cout << "Enter z: ";
 		cin >> z;
-		pair<float, float> ret = CalculateTheExpressionsOfM_And_P(x, y, z);
+		ret = CalculateTheExpressionsOfM_And_P(x, y, z);
 		m = ret.first;
 		p = ret.second;
 		cout <<"Expression value of M: " << m << endl;
 		cout << "Expression value of P: " << p << endl;
 		break;
 	case 3:
+		float a;
 
+		cout << "Enter real number: ";
+		cin >> a;
+		CalculateFuncForRealNumber(a);
 		break;
 	}
 }
