@@ -3,6 +3,11 @@
 
 using namespace std;
 
+/**
+ * @brief Перевіряє правильність введенного значення користувачем типу int
+ * @param i Число типу int для перевірки 
+ * @return Повертає коректне число 
+*/
 int CheckValue(int i) {
 
 	cin.ignore(32767, '\n');
@@ -19,6 +24,11 @@ int CheckValue(int i) {
 	}
 }
 
+/**
+ * @brief Перевіряє правильність введенного значення користувачем типу float
+ * @param i Число типу float для перевірки 
+ * @return Повертає коректне число 
+*/
 float CheckFloatValue(float i) {
 
 	cin.ignore(32767, '\n');
@@ -35,6 +45,11 @@ float CheckFloatValue(float i) {
 	}
 }
 
+/**
+ * @brief Перевіряє коректність значення кута f заданного користувачем
+ * @param f Число типу float, що відображає градусну міру кута f
+ * @return Повертає коректне значення кута f
+*/
 float CheckCorrectAngle(float f) {
 
 	if (f < 0 || f > 360) {
@@ -47,6 +62,11 @@ float CheckCorrectAngle(float f) {
 	}
 }
 
+/**
+ * @brief Перевіряє коректність введенного користувачем числа N
+ * @param n Число N
+ * @return Повертає коректне значення числа N
+*/
 int CheckNaturalNumber(int n) {
 
 	if (n < 0) {
@@ -59,6 +79,10 @@ int CheckNaturalNumber(int n) {
 	}
 }
 
+/**
+ * @brief Перевіряє чи натуральне число N кратне 3 або 4
+ * @param n Натуральне чило N
+*/
 void NaturalNumberIsMultipleOfThreeOrFour(int n) {
 
 	if (n % 3 == 0 && n % 9 != 0) {
@@ -80,6 +104,13 @@ void NaturalNumberIsMultipleOfThreeOrFour(int n) {
 	}
 }
 
+/**
+ * @brief Обчислює значення виразів М і Р
+ * @param x Число, яке задане користувачем з клавіатури
+ * @param y Число, яке задане користувачем з клавіатури
+ * @param z Число, яке задане користувачем з клавіатури
+ * @return Пару значень обчислених виразів М і Р
+*/
 pair<float, float> CalculateTheExpressionsOfM_And_P(float x,float y,float z) {
 
 	float m, p;
@@ -87,10 +118,14 @@ pair<float, float> CalculateTheExpressionsOfM_And_P(float x,float y,float z) {
 
 	m = (2 * sin(x + pi / 5)) / (5 + pow(sin(y), 2)); 
 	p = (z + pow(z, 2)) / (3 + 2 * pow(z, 2)) + 5;
-	
+
 	return make_pair (m, p);
 }
 
+/**
+ * @brief Обчислює функцію від дійсного числа
+ * @param a Дійсне число, яке задане користувачем з клавіатури
+*/
 void CalculateFuncForRealNumber(float a) {
 	
 	if (a < 2 && a >= -2) {
@@ -102,6 +137,10 @@ void CalculateFuncForRealNumber(float a) {
 	cout << "Function of real number A is: " << a << endl;
 }
 
+/**
+ * @brief Обчислює кут, який утворює хвилина стрілка з променем та кількість повних годин і хвилин
+ * @param f Градусна міра кута, яке задане користувачем з клавіатури
+*/
 void CalculateAngleOfMinutesAndTime(float f) {
 	
 	float h, m;
@@ -118,6 +157,11 @@ void CalculateAngleOfMinutesAndTime(float f) {
 	cout << "Angle of a minute hand with a given ray: " << angle << endl;
 }
 
+/**
+ * @brief Інтерфейс який дає змогу користувачу працювати з додатком 
+ * @param q Вибір виконуваного завдання, яке задається користувачем з клавіатури
+ * @return Повертає саме себе для продовження роботи користувача з додатком
+*/
 int MenuOfSolution(int q) {
 
 	pair<float, float> ret;
